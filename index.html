@@ -194,6 +194,15 @@
     display: inline-block;
   }
   .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 36px oklch(68% 0.19 48 / 0.5); }
+  .btn-primary.is-locked {
+    pointer-events: none;
+    cursor: not-allowed;
+    filter: saturate(0.7);
+    opacity: 0.92;
+  }
+  .btn-primary.is-locked::before {
+    content: '🔒 ';
+  }
   .btn-ghost {
     font-family: var(--font-body); font-size: 0.85rem;
     font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
@@ -386,6 +395,10 @@
     white-space: nowrap; align-self: start;
   }
   .event-spots.few { background: var(--coral); }
+  .event-spots.upcoming {
+    background: oklch(0% 0% 0 / 0.08);
+    color: var(--muted);
+  }
   .events-btn-wrap { margin-top: 2rem; }
 
   /* ─── COLLAGE ──────────────────────────────────────────── */
@@ -451,13 +464,55 @@
   }
 
   /* Collage cell color variations */
-  .cc1 { background: linear-gradient(135deg, oklch(38% 0.11 220) 0%, oklch(28% 0.09 235) 100%); }
-  .cc2 { background: linear-gradient(135deg, oklch(55% 0.12 205) 0%, oklch(42% 0.10 215) 100%); }
-  .cc3 { background: linear-gradient(135deg, oklch(62% 0.17 50) 0%, oklch(48% 0.14 35) 100%); }
-  .cc4 { background: linear-gradient(135deg, oklch(45% 0.10 210) 0%, oklch(35% 0.08 225) 100%); }
-  .cc5 { background: linear-gradient(135deg, oklch(30% 0.06 230) 0%, oklch(22% 0.05 240) 100%); }
-  .cc6 { background: linear-gradient(135deg, oklch(68% 0.16 55) 0%, oklch(55% 0.13 45) 100%); }
-  .cc7 { background: linear-gradient(135deg, oklch(50% 0.11 212) 0%, oklch(40% 0.09 220) 100%); }
+  .cc1 {
+    background-image:
+      linear-gradient(135deg, oklch(20% 0.05 230 / 0.35) 0%, oklch(12% 0.04 240 / 0.55) 100%),
+      url('assets/images/boards_lined_up.png');
+    background-size: cover;
+    background-position: center;
+  }
+  .cc2 {
+    background-image:
+      linear-gradient(135deg, oklch(20% 0.05 225 / 0.3) 0%, oklch(12% 0.04 235 / 0.5) 100%),
+      url('assets/images/Toronto_skyline_paddling.png');
+    background-size: cover;
+    background-position: center;
+  }
+  .cc3 {
+    background-image:
+      linear-gradient(135deg, oklch(24% 0.06 50 / 0.2) 0%, oklch(14% 0.05 40 / 0.45) 100%),
+      url('assets/images/coffee_after.jpeg');
+    background-size: cover;
+    background-position: center;
+  }
+  .cc4 {
+    background-image:
+      linear-gradient(135deg, oklch(20% 0.05 220 / 0.25) 0%, oklch(10% 0.04 230 / 0.45) 100%),
+      url('assets/images/Sunset_reflections.jpeg');
+    background-size: cover;
+    background-position: center;
+  }
+  .cc5 {
+    background-image:
+      linear-gradient(135deg, oklch(18% 0.05 230 / 0.25) 0%, oklch(8% 0.04 240 / 0.55) 100%),
+      url('assets/images/Full_moon_float.jpeg');
+    background-size: cover;
+    background-position: center;
+  }
+  .cc6 {
+    background-image:
+      linear-gradient(135deg, oklch(24% 0.06 45 / 0.18) 0%, oklch(12% 0.05 35 / 0.45) 100%),
+      url('assets/images/friends_laughing.jpeg');
+    background-size: cover;
+    background-position: center;
+  }
+  .cc7 {
+    background-image:
+      linear-gradient(135deg, oklch(18% 0.05 222 / 0.2) 0%, oklch(10% 0.04 232 / 0.45) 100%),
+      url('assets/images/sunrise_paddle.jpeg');
+    background-size: cover;
+    background-position: center;
+  }
 
   /* ─── PARTNERS ─────────────────────────────────────────── */
   .partners {
@@ -579,7 +634,6 @@
     background: oklch(0% 0% 0 / 0.06);
     color: var(--muted);
   }
-
   /* ─── MEMBERSHIP CALLOUT ───────────────────────────────── */
   .callout {
     margin: 0 5%; padding: 0;
@@ -781,7 +835,7 @@
     </p>
     <div class="hero-ctas">
       <a href="#events" class="btn-primary">Join First Meetup</a>
-      <a href="#membership" class="btn-ghost">Become Founding Member</a>
+      <a href="#membership" class="btn-ghost">Become a Member</a>
     </div>
   </div>
   <div class="hero-scroll-hint">
@@ -845,44 +899,40 @@
           <p class="event-tag">🌅 Sunset Paddle</p>
           <h3 class="event-name">Sunset Float @ Humber Bay</h3>
           <div class="event-meta">
-            <span>Fri, May 2 · 7:00 PM</span>
             <span>Humber Bay Park E</span>
           </div>
         </div>
-        <div class="event-spots few">4 left</div>
+        <div class="event-spots upcoming">Upcoming</div>
       </div>
       <div class="event-card">
         <div>
           <p class="event-tag">☀️ Morning Ritual</p>
           <h3 class="event-name">Saturday Coffee Paddle</h3>
           <div class="event-meta">
-            <span>Sat, May 3 · 8:00 AM</span>
             <span>Colonel Sam Smith Park</span>
           </div>
         </div>
-        <div class="event-spots">12 spots</div>
+        <div class="event-spots upcoming">Upcoming</div>
       </div>
       <div class="event-card">
         <div>
           <p class="event-tag">🌊 Beginner Friendly</p>
           <h3 class="event-name">Intro Night — First-Timers</h3>
           <div class="event-meta">
-            <span>Wed, May 7 · 6:30 PM</span>
             <span>Mimico Waterfront</span>
           </div>
         </div>
-        <div class="event-spots">Open</div>
+        <div class="event-spots upcoming">Upcoming</div>
       </div>
       <div class="event-card">
         <div>
           <p class="event-tag">🌕 Special Event</p>
           <h3 class="event-name">Full Moon Float Night</h3>
           <div class="event-meta">
-            <span>Fri, May 9 · 9:00 PM</span>
             <span>Humber Bay Shores</span>
           </div>
         </div>
-        <div class="event-spots few">7 left</div>
+        <div class="event-spots upcoming">Upcoming</div>
       </div>
     </div>
   </div>
@@ -896,31 +946,24 @@
   </div>
   <div class="collage-grid reveal">
     <div class="collage-cell cc1">
-      <div class="collage-placeholder">Boards lined up<br>on shore at dawn</div>
       <div class="collage-label">Golden Hour</div>
     </div>
     <div class="collage-cell cc2">
-      <div class="collage-placeholder">Group paddling<br>Toronto skyline</div>
       <div class="collage-label">The Squad</div>
     </div>
     <div class="collage-cell cc3">
-      <div class="collage-placeholder">Flat whites &<br>laughter post-paddle</div>
-      <div class="collage-label">Coffee After</div>
+      <div class="collage-label">SERENDIPITY</div>
     </div>
     <div class="collage-cell cc4">
-      <div class="collage-placeholder">Sunset reflection<br>on calm water</div>
       <div class="collage-label">Pure Peace</div>
     </div>
     <div class="collage-cell cc5">
-      <div class="collage-placeholder">Full moon float<br>glow on the lake</div>
       <div class="collage-label">Full Moon Float</div>
     </div>
     <div class="collage-cell cc6">
-      <div class="collage-placeholder">Friends laughing<br>on the beach</div>
       <div class="collage-label">The Community</div>
     </div>
     <div class="collage-cell cc7">
-      <div class="collage-placeholder">Sunrise paddle<br>misty lake</div>
       <div class="collage-label">Rise & Paddle</div>
     </div>
   </div>
@@ -983,22 +1026,22 @@
       <div class="city-row">
         <span class="city-num">02</span>
         <span class="city-name">Toronto</span>
-        <span class="city-status soon">Summer 2025</span>
+        <span class="city-status live">Live Now</span>
       </div>
       <div class="city-row">
         <span class="city-num">03</span>
         <span class="city-name">Oakville</span>
-        <span class="city-status soon">Fall 2025</span>
+        <span class="city-status soon">Fall 2026</span>
       </div>
       <div class="city-row">
         <span class="city-num">04</span>
         <span class="city-name">Muskoka</span>
-        <span class="city-status soon">2026</span>
+        <span class="city-status soon">2027</span>
       </div>
       <div class="city-row">
         <span class="city-num">05</span>
         <span class="city-name">Vancouver</span>
-        <span class="city-status soon">2026</span>
+        <span class="city-status soon">2027</span>
       </div>
     </div>
   </div>
@@ -1021,7 +1064,7 @@
         <li>Priority booking for special events</li>
         <li>Coffee credit at partner cafés</li>
       </ul>
-      <a href="#" class="btn-primary" style="font-size:0.82rem;">Become a Founding Member →</a>
+      <a href="#" class="btn-primary is-locked" style="font-size:0.82rem;" aria-disabled="true" tabindex="-1">Become a Founding Member →</a>
     </div>
   </div>
 </div>
@@ -1051,9 +1094,10 @@
       <div class="footer-col">
         <h4>Locations</h4>
         <a href="#">Etobicoke</a>
-        <a href="#">Toronto (soon)</a>
-        <a href="#">Oakville (soon)</a>
-        <a href="#">Muskoka (2026)</a>
+        <a href="#">Toronto (Live now)</a>
+        <a href="#">Oakville (Fall 2026)</a>
+        <a href="#">Muskoka (2027)</a>
+        <a href="#">Vancouver (2027)</a>
       </div>
     </div>
   </div>
